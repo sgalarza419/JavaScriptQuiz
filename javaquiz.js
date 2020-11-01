@@ -40,14 +40,15 @@ var quiz = [{
 ];
 
 bttnClick = document.querySelector("button");
-timeEl = document.querySelector(".timer");
+timeEl = document.querySelector(".time");
+display = document.getElementById("qCard");
 
 question = document.section[1].textContent();
 
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        timeEl.textContent = secondsLeft;
+        timeEl.textContent = "Time: " + secondsLeft;
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
@@ -58,4 +59,12 @@ function setTime() {
 bttnClick.addEventListener("click", function () {
     setTime();
 })
-}
+
+// function gameOver() {
+//     timeEl.textContent = " ";
+//     var imgEl = document.createElement("img");
+//     imgEl.setAttribute("src", "#");
+//     display.appendChild(imgEl);
+// }
+
+setTime();
