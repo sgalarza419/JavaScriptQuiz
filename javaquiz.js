@@ -1,4 +1,4 @@
-var secondsLeft = 30;
+var secondsLeft = 5;
 var highscores = [];
 var points;
 var quiz = [{
@@ -43,7 +43,7 @@ bttnClick = document.querySelector("button");
 timeEl = document.querySelector(".time");
 display = document.getElementById("qCard");
 
-question = document.section[1].textContent();
+// question = document.section[1].textContent();
 
 function setTime() {
     var timerInterval = setInterval(function () {
@@ -57,14 +57,17 @@ function setTime() {
     }, 1000);
 }
 bttnClick.addEventListener("click", function () {
+    display.textContent = " ";
+    question = document.createElement("p");
+    display.appendChild(question);
+    question = textContent(quiz[0]);
     setTime();
 })
 
-// function gameOver() {
-//     timeEl.textContent = " ";
-//     var imgEl = document.createElement("img");
-//     imgEl.setAttribute("src", "#");
-//     display.appendChild(imgEl);
-// }
-
-setTime();
+function gameOver() {
+    timeEl.textContent = " ";
+    display.textContent = " ";
+    var imgEl = document.createElement("img");
+    imgEl.setAttribute("src", "images/gameover.png");
+    display.appendChild(imgEl);
+}
