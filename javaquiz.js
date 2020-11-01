@@ -1,29 +1,29 @@
-var secondsLeft = 10;
+var secondsLeft = 30;
 var highscores = [];
 var points;
 var quiz = [{
-        q1: "Who founded Nintendo?",
+        q: "Who founded Nintendo?",
         a1: "Fusajiro Yamauchi",
         w1: "Reggie Fils-Aime",
         w2: "Satoru Iwata",
         w3: "Shigeru Miyamoto"
     },
     {
-        q2: "What was the first video game?",
+        q: "What was the first video game?",
         a2: "Pong",
         w1: "E.T. the Extra-Terrestrial",
         w2: "PAC-MAN",
         w3: "Donkey Kong"
     },
     {
-        q3: "What was SEGA debut home console?",
-        a2: "SG-1000",
+        q: "What was SEGA debut home console?",
+        a3: "SG-1000",
         w1: "Sega Genesis",
         w2: "PlayStation",
         w3: "Dreamcast"
     },
     {
-        q4: "How many different color Yoshi are there?",
+        q: "How many different color Yoshi are there?",
         a4: "11",
         w1: "4",
         w2: "1",
@@ -31,7 +31,7 @@ var quiz = [{
 
     },
     {
-        q5: "Bungi developed this game as a Xbox launch title",
+        q: "Bungi developed this game as a Xbox launch title",
         a5: "Halo: Combat Evolved",
         w1: "Project Gotham Racing",
         w2: "Conkers: Bad Fur Day",
@@ -59,8 +59,24 @@ bttnClick.addEventListener("click", function () {
     setTime();
     display.textContent = " ";
     var question = document.createElement("p");
+    var answer1 = document.createElement("button");
+    var answer2 = document.createElement("button");
+    var answer3 = document.createElement("button");
+    var answer4 = document.createElement("button");
+
+    question.innerHTML = quiz[0].q;
+    answer1.innerHTML = quiz[0].a1;
+    answer2.innerHTML = quiz[0].w1;
+    answer3.innerHTML = quiz[0].w2;
+    answer4.innerHTML = quiz[0].w3;
+
+
     display.appendChild(question);
-    question.createElement(quiz.q1);
+    display.appendChild(answer1);
+    display.appendChild(answer2);
+    display.appendChild(answer3);
+    display.appendChild(answer4);
+
 })
 
 

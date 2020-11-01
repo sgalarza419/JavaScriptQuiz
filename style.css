@@ -1,0 +1,16 @@
+.time {
+    flex: right;
+}
+
+#highscore {
+    text-decoration: none;
+    color: orangered;
+    padding: 10px;
+    font-size: xx-large;
+}
+
+body section nav {
+    background-color: paleturquoise;
+    display: flex;
+
+}
