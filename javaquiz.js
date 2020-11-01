@@ -1,4 +1,4 @@
-var secondsLeft = 5;
+var secondsLeft = 10;
 var highscores = [];
 var points;
 var quiz = [{
@@ -49,7 +49,6 @@ function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time: " + secondsLeft;
-
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             gameOver();
@@ -57,12 +56,18 @@ function setTime() {
     }, 1000);
 }
 bttnClick.addEventListener("click", function () {
-    display.textContent = " ";
-    question = document.createElement("p");
-    display.appendChild(question);
-    question = textContent(quiz[0]);
     setTime();
+    display.textContent = " ";
+    var question = document.createElement("p");
+    display.appendChild(question);
+    question.createElement(quiz.q1);
 })
+
+
+
+
+
+
 
 function gameOver() {
     timeEl.textContent = " ";
