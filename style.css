@@ -3,14 +3,14 @@ body {
 }
 
 .time {
-    color: blueviolet;
+    color: darkcyan;
     margin-top: 15px;
     font-size: x-large
 }
 
 #highscore {
     text-decoration: none;
-    color: blueviolet;
+    color: darkcyan;
     padding: 10px;
     font-size: xx-large;
 }
@@ -24,12 +24,20 @@ body section nav {
 }
 
 #qCard {
+    word-spacing: 2px;
     color: green;
     text-align: center;
     background-color: greenyellow;
+    padding:10px;
+    padding-bottom: 658px;
 }
 
 button {
-    border-radius: 100%;
-    color: blueviolet
+    margin-top: 20px;
+    padding: 10px;
+    background-color:blueviolet;
+    border-radius: 12%;
+    color: yellow;
+    border: none;
+    font-size: 20px;
 }

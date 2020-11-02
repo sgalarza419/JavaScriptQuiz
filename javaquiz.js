@@ -1,6 +1,8 @@
-var secondsLeft = 5;
+//Setting up variables
+var secondsLeft = 30;
 var highscores = [];
 var points;
+// quiz object filled with questions and choices
 var quiz = [{
         q: "Who founded Nintendo?",
         a1: "Fusajiro Yamauchi",
@@ -59,25 +61,31 @@ bttnClick.addEventListener("click", function () {
     setTime();
     display.textContent = " ";
     var question = document.createElement("p");
-    var answer1 = document.createElement("button");
-    var answer2 = document.createElement("button");
-    var answer3 = document.createElement("button");
-    var answer4 = document.createElement("button");
+    var choice1 = document.createElement("button");
+    var choice2 = document.createElement("button");
+    var choice3 = document.createElement("button");
+    var choice4 = document.createElement("button");
 
     question.innerHTML = quiz[0].q;
-    answer1.innerHTML = quiz[0].a1;
-    answer2.innerHTML = quiz[0].w1;
-    answer3.innerHTML = quiz[0].w2;
-    answer4.innerHTML = quiz[0].w3;
-
+    choice1.innerHTML = quiz[0].a1;
+    choice2.innerHTML = quiz[0].w1;
+    choice3.innerHTML = quiz[0].w2;
+    choice4.innerHTML = quiz[0].w3;
 
     display.appendChild(question);
-    display.appendChild(answer1);
-    display.appendChild(answer2);
-    display.appendChild(answer3);
-    display.appendChild(answer4);
+    display.appendChild(choice1);
+    display.appendChild(choice2);
+    display.appendChild(choice3);
+    display.appendChild(choice4);
+});
 
-})
+bttnClick.addEventListener("click",
+    function () {
+        if (choice2 === true || choice3 === true || choice4 === true) {
+            secondsLeft = secondsLeft - 5;
+        } else secondsLeft = secondsLeft + 2;
+    })
+
 
 
 
