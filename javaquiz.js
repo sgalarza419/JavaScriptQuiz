@@ -1,5 +1,5 @@
 //Setting up variables
-var secondsLeft = 100;
+var secondsLeft = 30;
 var highscores = [];
 var points;
 // quiz object filled with questions and choices
@@ -97,14 +97,14 @@ function showQAndA() {
 
 wrongBttn.addEventListener("click",
     function () {
-        for (choice2 === true || choice3 === true || choice4 === true) {
+        if (choice2 === true || choice3 === true || choice4 === true) {
             secondsLeft = secondsLeft - 5;
         }
     });
 
 rightBttn.addEventListener("click",
     function () {
-        for (choice2 === true) {
+        if (choice2 === true) {
             score = score + 10;
         }
     });
