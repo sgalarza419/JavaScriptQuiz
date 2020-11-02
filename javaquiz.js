@@ -1,5 +1,5 @@
 //Setting up variables
-var secondsLeft = 30;
+var secondsLeft = 100;
 var highscores = [];
 var points;
 // quiz object filled with questions and choices
@@ -41,9 +41,11 @@ var quiz = [{
     }
 ];
 
-bttnClick = document.querySelector("button");
+wrongBttn = document.querySelector("wrong");
+rightBttn = document.querySelector("correct");
 timeEl = document.querySelector(".time");
 display = document.getElementById("qCard");
+startClick = document.getElementById("start");
 
 // question = document.section[1].textContent();
 
@@ -57,14 +59,25 @@ function setTime() {
         }
     }, 1000);
 }
-bttnClick.addEventListener("click", function () {
+startClick.addEventListener("click", function () {
     setTime();
+    showQAndA();
+});
+
+function showQAndA() {
     display.textContent = " ";
     var question = document.createElement("p");
+    var options = document.createElement("div");
     var choice1 = document.createElement("button");
     var choice2 = document.createElement("button");
     var choice3 = document.createElement("button");
     var choice4 = document.createElement("button");
+
+    options.setAttribute("class", "choiceButtons")
+    choice1.setAttribute("class", "correct");
+    choice2.setAttribute("class", "wrong");
+    choice3.setAttribute("class", "wrong");
+    choice4.setAttribute("class", "wrong");
 
     question.innerHTML = quiz[0].q;
     choice1.innerHTML = quiz[0].a1;
@@ -72,30 +85,35 @@ bttnClick.addEventListener("click", function () {
     choice3.innerHTML = quiz[0].w2;
     choice4.innerHTML = quiz[0].w3;
 
+
     display.appendChild(question);
-    display.appendChild(choice1);
-    display.appendChild(choice2);
-    display.appendChild(choice3);
-    display.appendChild(choice4);
-});
+    display.appendChild(options);
+    options.appendChild(choice1);
+    options.appendChild(choice2);
+    options.appendChild(choice3);
+    options.appendChild(choice4);
+}
 
-bttnClick.addEventListener("click",
+
+wrongBttn.addEventListener("click",
     function () {
-        if (choice2 === true || choice3 === true || choice4 === true) {
+        for (choice2 === true || choice3 === true || choice4 === true) {
             secondsLeft = secondsLeft - 5;
-        } else secondsLeft = secondsLeft + 2;
-    })
+        }
+    });
 
-
-
-
-
+rightBttn.addEventListener("click",
+    function () {
+        for (choice2 === true) {
+            score = score + 10;
+        }
+    });
 
 
 
 function gameOver() {
     timeEl.textContent = " ";
-    display.textContent = " ";
+    display.textContent = "GAME OVER";
     var imgEl = document.createElement("img");
     imgEl.setAttribute("src", "images/gameover.png");
     display.appendChild(imgEl);

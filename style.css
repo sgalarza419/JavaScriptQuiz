@@ -28,16 +28,28 @@ body section nav {
     color: green;
     text-align: center;
     background-color: greenyellow;
-    padding:10px;
+    padding: 10px;
     padding-bottom: 658px;
 }
 
 button {
     margin-top: 20px;
     padding: 10px;
-    background-color:blueviolet;
+    background-color: blueviolet;
     border-radius: 12%;
     color: yellow;
     border: none;
     font-size: 20px;
 }
+
+p {
+    font-size: 50px;
+    font-style: bold;
+}
+
+img {
+    padding-top: 50px;
+    width: 500px;
+}
+
+.choiceButtons {}
