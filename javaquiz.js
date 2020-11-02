@@ -1,4 +1,4 @@
-var secondsLeft = 30;
+var secondsLeft = 5;
 var highscores = [];
 var points;
 var quiz = [{

@@ -1,10 +1,16 @@
+body {
+    margin: 0;
+}
+
 .time {
-    flex: right;
+    color: blueviolet;
+    margin-top: 15px;
+    font-size: x-large
 }
 
 #highscore {
     text-decoration: none;
-    color: orangered;
+    color: blueviolet;
     padding: 10px;
     font-size: xx-large;
 }
@@ -12,5 +18,18 @@
 body section nav {
     background-color: paleturquoise;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: solid blueviolet 1px;
+}
 
+#qCard {
+    color: green;
+    text-align: center;
+    background-color: greenyellow;
+}
+
+button {
+    border-radius: 100%;
+    color: blueviolet
 }
