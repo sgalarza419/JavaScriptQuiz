@@ -1,32 +1,32 @@
 //Setting up variables
-var secondsLeft = 30;
+var secondsLeft = 100;
 var highscores = [];
-var points;
+var points = 0;
 // quiz object filled with questions and choices
 var quiz = [{
         q: "Who founded Nintendo?",
-        a1: "Fusajiro Yamauchi",
+        a: "Fusajiro Yamauchi",
         w1: "Reggie Fils-Aime",
         w2: "Satoru Iwata",
         w3: "Shigeru Miyamoto"
     },
     {
         q: "What was the first video game?",
-        a2: "Pong",
+        a: "Pong",
         w1: "E.T. the Extra-Terrestrial",
         w2: "PAC-MAN",
         w3: "Donkey Kong"
     },
     {
         q: "What was SEGA debut home console?",
-        a3: "SG-1000",
+        a: "SG-1000",
         w1: "Sega Genesis",
         w2: "PlayStation",
         w3: "Dreamcast"
     },
     {
         q: "How many different color Yoshi are there?",
-        a4: "11",
+        a: "11",
         w1: "4",
         w2: "1",
         w3: "8"
@@ -34,38 +34,42 @@ var quiz = [{
     },
     {
         q: "Bungi developed this game as a Xbox launch title",
-        a5: "Halo: Combat Evolved",
+        a: "Halo: Combat Evolved",
         w1: "Project Gotham Racing",
         w2: "Conkers: Bad Fur Day",
         w3: "Dead or Alive 3"
     }
 ];
 
-wrongBttn = document.querySelector("wrong");
-rightBttn = document.querySelector("correct");
+// wrongBttn = document.querySelector(".wrong");
+// rightBttn = document.querySelector(".correct");
 timeEl = document.querySelector(".time");
 display = document.getElementById("qCard");
 startClick = document.getElementById("start");
+button = document.querySelector(".button");
 
 // question = document.section[1].textContent();
 
-function setTime() {
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        timeEl.textContent = "Time: " + secondsLeft;
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            gameOver();
-        }
-    }, 1000);
-}
+
+
+// display.addEventListener("click", function (e) {
+//     if (e.target.className == "button")
+
+// });
+
 startClick.addEventListener("click", function () {
     setTime();
     showQAndA();
 });
 
+
+
+var i = 0;
+
 function showQAndA() {
     display.textContent = " ";
+
+    // console.log(i);
     var question = document.createElement("p");
     var options = document.createElement("div");
     var choice1 = document.createElement("button");
@@ -79,12 +83,11 @@ function showQAndA() {
     choice3.setAttribute("class", "wrong");
     choice4.setAttribute("class", "wrong");
 
-    question.innerHTML = quiz[0].q;
-    choice1.innerHTML = quiz[0].a1;
-    choice2.innerHTML = quiz[0].w1;
-    choice3.innerHTML = quiz[0].w2;
-    choice4.innerHTML = quiz[0].w3;
-
+    question.innerHTML = quiz[i].q;
+    choice1.innerHTML = quiz[i].a;
+    choice2.innerHTML = quiz[i].w1;
+    choice3.innerHTML = quiz[i].w2;
+    choice4.innerHTML = quiz[i].w3;
 
     display.appendChild(question);
     display.appendChild(options);
@@ -92,24 +95,32 @@ function showQAndA() {
     options.appendChild(choice2);
     options.appendChild(choice3);
     options.appendChild(choice4);
-}
 
-
-wrongBttn.addEventListener("click",
-    function () {
-        if (choice2 === true || choice3 === true || choice4 === true) {
+    options.addEventListener("click", function (event) {
+        console.log(event.target.className);
+        if (event.target.className === "wrong") {
             secondsLeft = secondsLeft - 5;
+            console.log(secondsLeft);
+        } else(points = points + 10)
+        console.log(points)
+        i++;
+        if (i <= quiz.length) {
+            // enter HIGHSCORE
         }
-    });
+        showQAndA();
+    })
+};
 
-rightBttn.addEventListener("click",
-    function () {
-        if (choice2 === true) {
-            score = score + 10;
+function setTime() {
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = "Time: " + secondsLeft;
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            gameOver();
         }
-    });
-
-
+    }, 1000);
+}
 
 function gameOver() {
     timeEl.textContent = " ";
