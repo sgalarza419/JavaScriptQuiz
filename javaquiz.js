@@ -1,5 +1,5 @@
 //Setting up variables
-var secondsLeft = 100;
+var secondsLeft = 30;
 var highscores = [];
 var points = 0;
 // quiz object filled with questions and choices
@@ -104,8 +104,12 @@ function showQAndA() {
         } else(points = points + 10)
         console.log(points)
         i++;
-        if (i <= quiz.length) {
+        if (i >= quiz.length) {
+
             // enter HIGHSCORE
+            initials = prompt("Please enter your initials to submit your score");
+            localStorage.setItem(initials, points);
+
         }
         showQAndA();
     })
@@ -115,7 +119,7 @@ function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time: " + secondsLeft;
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerInterval);
             gameOver();
         }
