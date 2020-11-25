@@ -34,7 +34,61 @@
         </div>
     </section>
 
-    <script src="./javaquiz.js"></script>
+    <script>
+        function fillHighscore() {
+            // console.log("start of fillHighscore()")
+            for (j = 0; j < localStorage.length; j++) {
+                // console.log("highscore is filling up")
+                initials = localStorage.key(j);
+                points = localStorage.getItem(initials);
+                // console.log("this is initials:", initials);
+                // console.log("this is points:", points);
+
+                // create elements tr and td 
+                createPointCol();
+                createInitialsCol();
+            }
+
+            function createPointCol() {
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                console.log("this is tr", tr);
+                // sets attributes to td class=point#
+                td.setAttribute("class", "point" + j);
+                tr.appendChild(td);
+
+                points = document.createTextNode(points);
+                td.append(points);
+
+                const tbody = document.querySelector("tbody");
+                tbody.appendChild(tr);
+            }
+
+            function createInitialsCol() {
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                console.log("this is tr", tr);
+                // sets attributes to td class=point#
+                td.setAttribute("class", "initials" + j);
+                tr.appendChild(td);
+
+                initials = document.createTextNode(initials);
+                td.append(initials);
+
+                const tbody = document.querySelector("tbody");
+                tbody.appendChild(tr);
+            }
+
+            // td.setAttribute("class", "initials" + j);
+            // tr.appendChild(td);
+
+            // initials = document.createTextNode(initials);
+            // td.append(initials);
+
+        };
+
+        fillHighscore();
+    </script>
 </body>
 
 </html>
