@@ -51,6 +51,7 @@
 
             function createPointCol() {
                 const tr = document.createElement("tr");
+                tr.setAttribute("id", j);
                 const td = document.createElement("td");
                 console.log("this is tr", tr);
                 // sets attributes to td class=point#
@@ -65,7 +66,7 @@
             }
 
             function createInitialsCol() {
-                const tr = document.createElement("tr");
+                const tr = document.getElementById(j);
                 const td = document.createElement("td");
                 console.log("this is tr", tr);
                 // sets attributes to td class=point#
