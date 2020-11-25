@@ -63,7 +63,6 @@ startClick.addEventListener("click", function () {
 });
 
 
-
 var i = 0;
 
 function showQAndA() {
@@ -97,22 +96,54 @@ function showQAndA() {
     options.appendChild(choice4);
 
     options.addEventListener("click", function (event) {
-        console.log(event.target.className);
+        // console.log(event.target.className);
         if (event.target.className === "wrong") {
             secondsLeft = secondsLeft - 5;
-            console.log(secondsLeft);
+            // console.log(secondsLeft);
         } else(points = points + 10)
-        console.log(points)
+        // console.log(points)
         i++;
         if (i >= quiz.length) {
 
             // enter HIGHSCORE
             initials = prompt("Please enter your initials to submit your score");
             localStorage.setItem(initials, points);
-
+            changeToHighscore();
         }
         showQAndA();
     })
+};
+
+
+function changeToHighscore() {
+    window.location.replace("highscore.html");
+}
+
+fillHighscore();
+
+function fillHighscore() {
+    console.log("start of fillHighscore()")
+    for (j = 0; j < localStorage.length; j++) {
+        console.log("highscore is filling up")
+        initials = localStorage.key(j);
+        points = localStorage.getItem(initials);
+
+
+        tr = document.createElement("tr");
+        td = document.createElement("td");
+        console.log(tr, td);
+
+
+        td.setAttribute("class", "point" + j);
+        tr.appendChild(td);
+        td.innerHTML(points[j]);
+        td.setAttribute("class", "initials" + j);
+        tr.appendChild(td);
+        td.innerHTML(initials[j]);
+
+        tbody = document.querySelector("tbody");
+        tbody.appendChild(tr);
+    }
 };
 
 function setTime() {

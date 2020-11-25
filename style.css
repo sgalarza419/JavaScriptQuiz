@@ -51,3 +51,9 @@ img {
     padding-top: 50px;
     width: 500px;
 }
+
+.highscore {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
